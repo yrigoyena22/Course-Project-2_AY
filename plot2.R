@@ -80,11 +80,11 @@ barplot(
     (TotalEmissionsBaltimore$Emissions)/10^6,
     names.arg=TotalEmissionsBaltimore$year,
     xlab="Year",
-    ylab="PM2.5 Emissions (10^6 Tons)",
+    ylab="PM2.5 Emissions Baltimore (10^6 Tons)",
     main="Total PM2.5 Emissions From All Baltimore City Sources"
 )
 ##Saving Plot2 in R
 dev.copy(png,"plot2.png", width=480, height=480)
 dev.off()
-## From the plot2 above, we can realize that the total PM2.5 have 
+## From the plot2 above, we can realize that the total PM2.5 in the baltimore are have 
 ##continuously decreased from 1999 to 2002, except for year 2005.
