@@ -70,8 +70,7 @@ colSums(is.na(NEIdata))
 NEIdataBaltimore<-subset(NEIdata, fips == "24510")
 TotalEmissionsBaltimore <- aggregate(Emissions ~ year, NEIdataBaltimore, sum)
 TotalEmissionsBaltimore
-
-names(SCC)<-gsub("\\.","", names(SCC))
+clean_names<-gsub("\\.","", clean_names)
 SCCcombustion<-grepl(pattern = "comb", SCC$SCCLevelOne, ignore.case = TRUE)
 SCCCoal<-grepl(pattern = "coal", SCC$SCCLevelFour, ignore.case = TRUE)
 
@@ -91,11 +90,11 @@ NIEvehicleBaltimoreTotEm<-aggregate(Emissions~year, NEIvehicleBaltimore, sum)
 ##with emissions from motor vehicle sources in Los Angeles County, 
 ##California (fips == "06037"|}fips == "06037"). Which city has seen 
 ##greater changes over time in motor vehicle emissions?
-NEIvehicleBalti<-subset(NEIvehicleSSC, fips == "24510")
-NEIvehicleBalti$city <- "Baltimore City"
+NEIvehicleBaltimore<-subset(NEIvehicleSSC, fips == "24510")
+NEIvehicleBaltimore$city <- "Baltimore City"
 NEIvehiclela<-subset(NEIvehicleSSC, fips == "06037")
 NEIvehiclela$city <- "Los Angeles County"
-NEIBothCity <- rbind(NEIvehicleBalti, NEIvehiclela)
+NEIBothCity <- rbind(NEIvehicleBaltimore, NEIvehiclela)
 ##Plotting the results
 ####Question-5 solution
 ##How have emissions from motor vehicle sources changed from 1999-2008 
@@ -112,8 +111,9 @@ NIEvehicleBaltimoreTotEm<-aggregate(Emissions~year, NEIvehicleBaltimore, sum)
 g<-ggplot(aes(year, Emissions/10^5), data=NIEvehicleBaltimoreTotEm)
 g+geom_bar(stat="identity",fill="grey",width=0.75) +
     guides(fill=FALSE) +
-    labs(x="year", y=expression("Total PM"[2.5]*" Emission (10^5 Tons)")) + 
-    labs(title=expression("PM"[2.5]*" Motor Vehicle Source Emissions in Baltimore from 1999-2008"))
+    labs(x="year", y=expression("Total PM"[2.5]*" Emission in Baltimore (10^5 Tons)")) + 
+    labs(title=expression("PM"[2.5]*" Motor Vehicle Source Emissions in Baltimore from 1999 to 2008"))
 dev.copy(png,"plot5.png", width=480, height=480)
 dev.off()
- 
+##Plot 5 shows that the total emissions in Baltimore have been reduce substantially 
+## from about 0.004 x10^5 in 1999 to less than 0.001 x10^5 in 2008.
