@@ -78,7 +78,7 @@ barplot(
     names.arg=TotalEmissions$year,
     xlab="Year",
     ylab="PM2.5 Emissions (10^6 Tons)",
-    main="Total PM2.5 Emissions From All US Sources"
+    main="Total PM2.5 Emissions From All United States Sources"
 )
 ## From the plot1 above, we can realize that the total PM2.5missions have 
 ##decreased in the US from 1999 to 2008
@@ -86,7 +86,7 @@ barplot(
 ##Saving Plot1 in R
 dev.copy(png,"plot1.png", width=480, height=480)
 dev.off()
-## From the plot above, we can realize that the total PM2.5missions have 
+## From the plot-1 above, we can realize that the total PM2.5missions have 
 ##decreased in the US from 1999 to 2008
 ##The overall goal of this assignment is to explore the National Emissions 
 ##Inventory database and see what it say about fine particulate matter pollution in the United states over the 10-year period 1999-2008. You may use any R package you want to support your analysis.
