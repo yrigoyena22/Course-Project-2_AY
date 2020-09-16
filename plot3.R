@@ -101,13 +101,14 @@ TotalEmissionsBaltimore <- aggregate(Emissions ~ year, NEIdataBaltimore, sum)
 g<-ggplot(aes(x = year, y = Emissions, fill=type), data=NEIdataBaltimore)
 g+geom_bar(stat="identity")+
     facet_grid(.~type)+
-    labs(x="year", y=expression("Total PM"[2.5]*" Emission (Tons)")) + 
-    labs(title=expression("PM"[2.5]*" Emissions, Baltimore City 1999-2008 by Source Type"))+
+    labs(x="year", y=expression("Total PM"[2.5]*" Emission in Baltimore(Tons)")) + 
+    labs(title=expression("PM"[2.5]*" Emissions in Baltimore City, 1999-2008 by Source Type"))+
     guides(fill=FALSE)
 
 dev.copy(png,"plot3.png", width=480, height=480)
 dev.off()
-##we can see from the plot, the "NON-ROAD", "NONPOINT" and "ON-ROAD" type 
-##of sources have shown a reduction in the total PM2.5 Emissions. 
-##"POINT" type of source, shows the increase in the total PM2.5 emissions
-##from 1999-2005. However, there is a  decrease in 2008. 
+##we can see from  plot-3, the "NON-ROAD", ON-ROAD", and "NONPOINT"  " type
+##of sources have shown a reduction in the total PM2.5 Emissions for the 1999 
+##to 2005 time period.  On the other hand, "POINT" type of source, shows an 
+##increase trend in the total PM2.5 emissions 1999-2005. However, there is a 
+##reduction in emissions in  2008.
