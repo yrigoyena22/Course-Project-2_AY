@@ -70,7 +70,7 @@ colSums(is.na(NEIdata))
 ##Across the United States, how have emissions from coal combustion-related 
 ##sources changed from 1999-2008?
 ###  removing \\ from dataframe
-names(SCC)<-gsub("\\.","", names(SCC))
+clean_names<-gsub("\\.","", clean_names)
 SCCcombustion<-grepl(pattern = "comb", SCC$SCCLevelOne, ignore.case = TRUE)
 SCCCoal<-grepl(pattern = "coal", SCC$SCCLevelFour, ignore.case = TRUE)
 
@@ -83,9 +83,10 @@ g<-ggplot(aes(year, Emissions/10^5), data=NIECoalCombustionTotalEm)
 g+geom_bar(stat="identity",fill="grey",width=0.75) +
     guides(fill=FALSE) +
     labs(x="year", y=expression("Total PM"[2.5]*" Emission (10^5 Tons)")) + 
-    labs(title=expression("PM"[2.5]*" Coal Combustion Source Emissions Across US from 1999-2008"))
+    labs(title=expression("PM"[2.5]*" Coal Combustion Source Emissions Across US from 1999 to 2008"))
 
 dev.copy(png,"plot4.png", width=480, height=480)
 dev.off()
-##From graph 5 we can observe that the Coal combustion shows a decreasing trend with
-##a small increment from 2002 to2005, and then a decrease after 2005.
+##From graph 5 we can observe that the Coal combustion shows a decreasing trend
+##in the period 1999 to 2008 with a small increment from 2002 to 2005. 
+##After 2005 there is a reduction PM2.5 emissions.
